@@ -6,9 +6,9 @@
         <field name="email_from">${(object.write_uid.email and '%s &lt;%s&gt;' % (object.write_uid.name, object.write_uid.email) or '')|safe}</field>
         <field name="subject">${object.company_id.name} Contract (Ref ${object.name or 'n/a'})</field>
         <field name="partner_to">${object.tenant_id.id}</field>
-        <field name="model_id" ref="property_rent_managemnet.model_rental_tenancy"/>
+        <field name="model_id" ref="zero_rental_sale_property.model_rental_tenancy"/>
         <field name="auto_delete" eval="True"/>
-        <field name="report_template" ref="property_rent_managemnet.report_contract"/>
+        <field name="report_template" ref="zero_rental_sale_property.report_contract"/>
         <field name="report_name">Contract</field>
         <field name="lang">${object.tenant_id.lang}</field>
         <field name="body_html"><![CDATA[
