@@ -109,11 +109,11 @@ class Property(models.Model):
     @api.multi
     def action_view_contract(self):
         tenancies = self.env['rental.tenancy'].sudo().search([('property_id', '=', self.id)])
-        action = self.env.ref('property_rent_managemnet.view_tenancy_action').read()[0]
+        action = self.env.ref('zero_rental_sale_property.view_tenancy_action').read()[0]
         if len(tenancies) > 1:
             action['domain'] = [('id', 'in', tenancies.ids)]
         elif len(tenancies) == 1:
-            action['views'] = [(self.env.ref('property_rent_managemnet.view_tenancy_form').id, 'form')]
+            action['views'] = [(self.env.ref('zero_rental_sale_property.view_tenancy_form').id, 'form')]
             action['res_id'] = tenancies.ids[0]
         else:
             action = {'type': 'ir.actions.act_window_close'}
