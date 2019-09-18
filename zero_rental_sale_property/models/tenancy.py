@@ -54,9 +54,13 @@ class Tenancy(models.Model):
     sales_person = fields.Many2one('res.users', string='Sales Person', default=lambda self: self.env.uid,
                                    track_visibility='always')
 
+    # invoice_id = fields.Many2one('account.invoice')
     journal_id = fields.Many2one('account.journal',string='Journal',default=lambda s: s._default_journal(),
         domain="[('type', '=', 'sale'),('company_id', '=', company_id)]",
     )
+    # journal_entry_id = fields.Many2one('account.move',related='invoice_id.move_id', string='Journal Entry')
+    # journal_item_ids = fields.One2many('account.move.line', 'tenancy_id', string="Journal Items")
+
     @api.multi
     def action_view_invoices(self):
         invoices = self.env['account.invoice'].sudo().search([('tenancy_id', '=', self.id)])
@@ -148,13 +152,44 @@ class Tenancy(models.Model):
         order_date = self.create_date
         order_date = order_date[0:10]
         self.name = self.env['ir.sequence'].with_context(ir_sequence_date=order_date).next_by_code(sequence_code)
-        
+        # if self.property_id.property_account_deferred_id.id:
+        #     deferred_account = self.property_id.property_account_deferred_id.id
+        # elif self.property_id.parent_id.property_account_deferred_id.id:
+        #     deferred_account = self.property_id.parent_id.property_account_deferred_id.id
+        # else:
+        #     raise UserError(_('Please define deferred income account for this property'))
         if not self.tenant_id.property_account_receivable_id:
             raise UserError(_('Please define Receivable account for this tenant'))
 
         invoice = self.create_order_invoice()
         invoice.action_invoice_open()
-        
+        # journal_item_credit = {
+        #     'name': self.property_id.name +" - Annual rent",
+        #     'account_id': deferred_account,
+        #     'partner_id': self.tenant_id.id,
+        #     'credit':self.total_rent,
+        #     'date':date.today(),
+        #     'tenancy_id':self.id,
+        # }
+        # journal_item_debit = {
+        #     'name': self.property_id.name + " - Annual rent",
+        #     'account_id': self.tenant_id.property_account_receivable_id.id,
+        #     'partner_id': self.tenant_id.id,
+        #     'debit':self.total_rent,
+        #     'date': date.today(),
+        #     'tenancy_id': self.id,
+        # }
+        # account_move_data = {
+        #     'ref': self.name,
+        #     'journal_id': self.journal_id.id,
+        #     'date': date.today(),
+        #     'line_ids': [(0, 0, journal_item_credit),(0,0,journal_item_debit)]
+        # }
+        # move_id = self.env['account.move'].create(account_move_data)
+        # move_id.post()
+        # self.journal_entry_id = move_id.id
+
+
     @api.multi
     def create_order_invoice(self):
         self.ensure_one()
@@ -186,14 +221,17 @@ class Tenancy(models.Model):
             'partner_id': self.tenant_id.address_get(['invoice'])['invoice'],
             'account_id': self.tenant_id.property_account_receivable_id.id,
             'currency_id': currency.id,
-            
+            # 'partner_shipping_id': self.partner_shipping_id.id,
             'journal_id': journal.id,
-           
+            # 'payment_term_id': self.payment_term_id.id,
+            # 'fiscal_position_id': self.fiscal_position_id.id or self.partner_id.property_account_position_id.id,
+            # 'team_id': self.team_id.id,
+            # 'comment': self.note,
             'date_invoice': self.rent_start_date,
             'origin': self.name,
             'company_id': self.company_id.id,
             'tenancy_id':self.id
-           
+            # 'user_id': self.user_id.id,
         })
         return invoice_vals
 
@@ -210,7 +248,14 @@ class Tenancy(models.Model):
                 _('There is no income account defined for this product: "%s". You may have to install a chart of account from Accounting app, settings menu.') %
                 (self.property_id.name,))
 
-        
+        # fpos = self.partner_id.property_account_position_id
+        # if fpos:
+        #     account = fpos.map_account(account_id)
+
+        # if self.fiscal_position_id and line.product_id.taxes_id:
+        #     tax_ids = self.fiscal_position_id.map_tax(line.product_id.taxes_id).ids
+        # else:
+        #     tax_ids = line.product_id.taxes_id.ids
         invoice_line_vals = ({
             'name': self.property_id.name,
             'origin': self.name,
@@ -218,9 +263,13 @@ class Tenancy(models.Model):
             'invoice_id': invoice_id,
             'price_unit': self.property_id.lst_price,
             'quantity': 1,
+            # 'discount': line.discount,
             'uom_id': self.property_id.uom_id.id,
             'product_id': self.property_id.id,
-            
+            # 'invoice_line_tax_ids': [(6, 0, line.tax_id.ids)],
+            # 'account_analytic_id': line.order_id.project_id.id or False,
+            # 'analytic_tag_ids': [(6, 0, line.analytic_tag_ids.ids)],
+        })
         return invoice_line_vals
 
     @api.multi
@@ -243,7 +292,9 @@ class Tenancy(models.Model):
 
                 while next_rent <= tenancy.rent_end_date:
                     recurring_data = {
+                        # 'name': records.property_id.name,
                         'schedule_date': next_rent,
+                        # 'account_info': income_account.name,
                         'rental_schedule': tenancy.id,
                         'recurring_amount': recurring_amount,
                     }
@@ -272,7 +323,7 @@ class Tenancy(models.Model):
     def action_contract_send(self):
         self.ensure_one()
         template = self.env.ref(
-            'property_rent_managemnet.email_contract_template',
+            'zero_rental_sale_property.email_contract_template',
             False,
         )
         compose_form = self.env.ref('mail.email_compose_message_wizard_form')
@@ -305,6 +356,19 @@ class Tenancy(models.Model):
             res += [(occ.id, name)]
         return res
 
+    # @api.onchange('product_id')
+    # def on_change_product_id(self):
+    #     if self.product_id:
+    #         self.deposit_paid = self.product_id.rent_amount
+    #     else:
+    #         self.deposit_paid = 0
+    #
+    # @api.constrains('deposit_paid')
+    # def validate_deposit_paid(self):
+    #     if self.deposit_paid < 0:
+    #         raise exceptions.ValidationError('Deposit paid cannot be a negative value')
+
+
 class JournalItemInherit(models.Model):
     _inherit = 'account.move.line'
 
@@ -331,6 +395,7 @@ class RentSchedule(models.Model):
 
     name = fields.Char('Description')
     schedule_date = fields.Date('Date')
+    # account_info = fields.Char('Account')
     recurring_amount = fields.Float('Amount')
     cheque_detail = fields.Char('Cheque Detail')
     assign_to = fields.Char('Assign to')
@@ -390,6 +455,14 @@ class RentSchedule(models.Model):
 
     @api.multi
     def pay_amount(self):
+        # purchases = self.env['purchase.order'].search([('sale_production_id', '=', self.id)])
+        # action = self.env.ref('purchase.purchase_rfq').read()[0]
+        # if len(purchases) > 1:
+        #     action['domain'] = [('id', 'in', purchases.ids)]
+        # elif len(purchases) == 1:
+        #     action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]
+        #     action['res_id'] = purchases.ids[0]
+        # else:
         action = {'type': 'ir.actions.act_window_close'}
         return {
         'name': 'Register Payment',
@@ -407,6 +480,8 @@ class RentSchedule(models.Model):
                     },
         'target': 'current',
         }
+        # return action
+
     @api.multi
     def button_payment_entry(self):
         payment_id = self.env['account.payment'].search([('schedule_id', '=', self.id)])
@@ -427,6 +502,11 @@ class RentSchedule(models.Model):
     def paid_info(self):
         for each in self:
             return True
+            # if self.env['account.invoice'].browse(each.invoice_number):
+            #     each.payment_info = self.env['account.invoice'].browse(each.invoice_number).state
+            # else:
+            #     each.payment_info = 'Record Deleted'
+
 
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
