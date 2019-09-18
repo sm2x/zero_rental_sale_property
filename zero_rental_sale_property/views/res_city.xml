@@ -25,7 +25,7 @@
 		</record>
 
         <!-- City menuitem -->
-        <menuitem id="property_city" name="Cities" sequence="1" parent="property_rent_managemnet.property_conf" action="view_res_city_action"/>
+        <menuitem id="property_city" name="Cities" sequence="1" parent="zero_rental_sale_property.property_conf" action="view_res_city_action"/>
 
    </data>
 </odoo>
