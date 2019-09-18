@@ -1306,4 +1306,3 @@ msgstr "rental.tenancy"
 #: model:ir.model,name:zero_rental_sale_property.model_res_city
 msgid "res.city"
 msgstr "res.city"
-
