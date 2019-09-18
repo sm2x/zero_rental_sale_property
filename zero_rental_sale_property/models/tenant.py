@@ -6,6 +6,10 @@ class Tenant(models.Model):
 
     national_id_no = fields.Char(string='National ID Number')
     tenancy_count = fields.Integer(string='# of Tenancy', compute='_get_tenancy_count', readonly=True)
+    # is_current = fields.Boolean(string='Is Current', default=False, compute='compute_occupation_status', store=True)
+    # one2many relations
+    # occupation_ids = fields.One2many('rental.occupation', 'tenant_id', string='Occupations')
+
     _sql_constraints = {('unique_national_id_no', 'unique(national_id_no)', 'National ID Number must be unique')}
 
     @api.multi
@@ -18,11 +22,11 @@ class Tenant(models.Model):
     @api.multi
     def action_view_contract(self):
         tenancies = self.env['rental.tenancy'].sudo().search([('tenant_id', '=', self.id)])
-        action = self.env.ref('property_rent_managemnet.view_tenancy_action').read()[0]
+        action = self.env.ref('zero_rental_sale_property.view_tenancy_action').read()[0]
         if len(tenancies) > 1:
             action['domain'] = [('id', 'in', tenancies.ids)]
         elif len(tenancies) == 1:
-            action['views'] = [(self.env.ref('property_rent_managemnet.view_tenancy_form').id, 'form')]
+            action['views'] = [(self.env.ref('zero_rental_sale_property.view_tenancy_form').id, 'form')]
             action['res_id'] = tenancies.ids[0]
         else:
             action = {'type': 'ir.actions.act_window_close'}
