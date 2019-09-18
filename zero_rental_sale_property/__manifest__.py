@@ -4,7 +4,7 @@
     "summary": "rental and sales properaty management ",
     'description': """this App for renting and sales properaty management full cycle integrated with odoo 10 sales , inventory, ecommerce and accouting-Test on odoo community and enterprise 10-Support English and Arabic interface""",
     'depends': ['base', 'sale', 'account', 'analytic','account_asset','website_sale'],
-    "category": "real estate",
+    "category": 'real estate',
     'author': 'Zero Systems',
     'company': 'Zero for Information Systems',
     'website': "https://www.erpzero.com",
