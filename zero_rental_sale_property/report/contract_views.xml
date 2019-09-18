@@ -6,7 +6,7 @@
         model="rental.tenancy"
         string="Contract"
         report_type="qweb-pdf"
-        name="property_rent_managemnet.report_contract_document"
-        file="property_rent_managemnet.report_contract"/>
+        name="zero_rental_sale_property.report_contract_document"
+        file="zero_rental_sale_property.report_contract"/>
 
 </odoo>
