@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <data>
-
+<openerp>
+    <data noupdate="1">
         <record id="sequence_contract_rental" model="ir.sequence">
             <field name="name">Contract Rental Sequence</field>
             <field name="code">contract.rental.sequence</field>
@@ -11,7 +10,9 @@
             <field eval="True" name="use_date_range"/>
             <field name="padding">4</field>
         </record>
-        
+    </data>
+    <data>
+
     <record id="view_tenancy_form" model="ir.ui.view">
         <field name="name">rental.tenancy.form</field>
         <field name="model">rental.tenancy</field>
@@ -128,8 +129,10 @@
     <record model="ir.ui.view" id="view_tenancy_tree">
         <field name="rental.tenancy.tree" mode="tree"></field>
         <field name="model">rental.tenancy</field>
+        <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree decoration-info="state == 'draft'" colors="grey:state == 'done';green:state == 'running';red:state == 'cancel';">
+            <tree decoration-info="state == 'draft'" colors="grey:state == 'done';
+                          green:state == 'running';red:state == 'cancel';">
                 <field name="name"/>
                 <field name="tenant_id" string="Tenant"/>
                 <field name="property_id" string="Property" create = "True"/>
@@ -189,5 +192,6 @@
         <field name="view_type">form</field>
         <field name="view_mode">calendar,tree,form</field>
     </record>
-  </data>
-</odoo>
+
+    </data>
+</openerp>
