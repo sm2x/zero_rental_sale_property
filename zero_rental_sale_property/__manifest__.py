@@ -14,7 +14,7 @@
         'report/contract_views.xml','views/property.xml',
         'views/tenant.xml',
         'views/tenancy.xml',
-        'views/sale_order.xml',
+        #'views/sale_order.xml',
         'views/rent_type.xml',
         'views/property_menuitem.xml',
         'views/res_city.xml',
