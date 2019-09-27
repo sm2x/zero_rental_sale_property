@@ -27,7 +27,7 @@ class SaleOrderInherit(models.Model):
                     order.is_rent = False
                 if line.product_id.rent_ok:
                     order.is_rent = True
-            print order.is_rent
+            print (order.is_rent)
         return super(SaleOrderInherit, self).action_confirm()
 
 
@@ -47,8 +47,8 @@ class SaleOrderInherit(models.Model):
             action = {'type': 'ir.actions.act_window_close'}
             for line in order.order_line:
                 product = line.product_id
-            print order
-            print product
+            print (order)
+            print (product)
             return {
                 'name': 'Tenancy',
                 'domain': [],
