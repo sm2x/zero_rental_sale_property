@@ -8,7 +8,7 @@ from odoo.exceptions import UserError, Warning
 
 class Tenancy(models.Model):
     _name = 'rental.tenancy'
-    _inherit = ['mail.thread', 'ir.needaction_mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'id'
 
     @api.depends('state')
