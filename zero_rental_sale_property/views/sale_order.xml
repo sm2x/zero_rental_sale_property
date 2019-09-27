@@ -6,7 +6,7 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <button name="%(sale.action_view_sale_advance_payment_inv)d'" position="replace">
+                <button name="%(sale.action_view_sale_advance_payment_inv)d'" position="replace"/>
                     <field name="is_rent" />
                     <field name="tenancy" />
                     <button name="action_create_contract" string="Create Contract" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('invoice_status', '!=', 'to invoice'),('is_rent','=',False),('tenancy', '=', True)]}"/>
