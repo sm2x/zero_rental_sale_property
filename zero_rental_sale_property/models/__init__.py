@@ -1,4 +1,4 @@
-import tenancy
-import property
-import tenant
-import sale_order
+from . import tenancy
+from . import property
+from . import tenant
+from . import sale_order
