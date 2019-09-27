@@ -6,23 +6,23 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <button name="%(sale.action_view_sale_advance_payment_inv)d'" position="replace">
+                <xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d']" position="replace">
                     <field name="is_rent" />
                     <field name="tenancy" />
                     <button name="action_create_contract" string="Create Contract" type="object" class="btn-primary" attrs="{'invisible': ['|','|',('invoice_status', '!=', 'to invoice'),('is_rent','=',False),('tenancy', '=', True)]}"/>
                     <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice" type="action" context="{'default_advance_payment_method': 'percentage'}" attrs="{'invisible': ['|','|',('invoice_status', '!=', 'no'),('is_rent','=',True),('state', '!=', 'sale')]}"/>
-                </button>
-                <field name="%'order_line'/tree//field name=%'product_id'" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="replace">
                     <field name="product_id" domain= "['|',('sale_ok','=',True),('rent_ok','=',True)]" context="{'partner_id':parent.partner_id, 'quantity':product_uom_qty, 'pricelist':parent.pricelist_id, 'uom':product_uom, 'company_id': parent.company_id}"/>
-                </field>
-                <button name="%'action_view_invoice'" position="after">
+                </xpath>
+                <xpath expr="//button[@name='action_view_invoice']" position="after">
                      <button name="action_view_contract"
                              type="object"
                              class="oe_stat_button"
                              icon="fa-pencil-square-o" attrs="{'invisible': [('tenancy', '=', False)]}">
                      <field name="tenancy_count" widget="statinfo" string="Tenancy"/>
                      </button>
-                </button>
+                </xpath>
             </field>
         </record>
     </data>
