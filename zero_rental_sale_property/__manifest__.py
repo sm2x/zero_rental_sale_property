@@ -1,9 +1,9 @@
 {
     "name": "zero_rental_sale_property",
-    'version': '10.1.0',
+    'version': '12.1.0',
     "summary": "rental and sales properaty management ",
-    'description': """this App for Renting and Sales Properaty management full cycle integrated with odoo 10 (sales , inventory, ecommerce and accouting)-tested on odoo community and enterprise 10-Support English and Arabic interface""",
-    'depends': ['base', 'sale', 'account', 'analytic','account_asset','website_sale'],
+    'description': """this App for Renting and Sales Properaty management full cycle integrated with odoo 12 (sales , inventory, ecommerce and accouting)-tested on odoo community and enterprise 12-Support English and Arabic interface""",
+    'depends': ['base', 'sale', 'account', 'analytic','om_account_asset','website_sale'],
     "category": 'real estate',
     'author': 'Zero Systems',
     'company': 'Zero for Information Systems',
