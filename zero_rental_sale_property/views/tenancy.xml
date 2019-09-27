@@ -127,7 +127,7 @@
     </record>
 
     <record model="ir.ui.view" id="view_tenancy_tree">
-        <field name="rental.tenancy.tree" mode="tree">
+        <field name="rental.tenancy.tree" mode="tree"></field>
         <field name="model">rental.tenancy</field>
         <field name="arch" type="xml">
             <tree decoration-info="state == 'draft'" colors="grey:state == 'done';green:state == 'running';red:state == 'cancel';">
