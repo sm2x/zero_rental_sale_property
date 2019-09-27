@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-  <data>
+    <data>
+
         <record id="sequence_contract_rental" model="ir.sequence">
             <field name="name">Contract Rental Sequence</field>
             <field name="code">contract.rental.sequence</field>
