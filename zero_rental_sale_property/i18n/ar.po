@@ -1,0 +1,1308 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* zero_rental_sale_property
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-15 11:51+0000\n"
+"PO-Revision-Date: 2019-09-15 11:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zero_rental_sale_property
+#: model:mail.template,body_html:zero_rental_sale_property.email_contract_template
+msgid "\n"
+"            <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                <p>Hello ${object.tenant_id.name or ''},</p>\n"
+"                <p>A new contract has been created: </p>\n"
+"\n"
+"                <p style=\"border-left: 1px solid #8e0000; margin-left: 40px;\">\n"
+"                   <strong>REFERENCES</strong><br />\n"
+"                   Contract: <strong>${object.name}</strong><br />\n"
+"                   % if object.rent_start_date:\n"
+"                   Contract Date Start: ${object.rent_start_date or ''}<br />\n"
+"                   % endif\n"
+"\n"
+"                   % if object.write_uid:\n"
+"                   % if object.write_uid.email:\n"
+"                   Your Contact: <a href=\"mailto:${object.write_uid.email or ''}?subject=Contract%20${object.name}\">${object.write_uid.name}</a>\n"
+"                   % else:\n"
+"                   Your Contact: ${object.write_uid.name}\n"
+"                   % endif\n"
+"                   % endif\n"
+"                </p>\n"
+"\n"
+"                <br/>\n"
+"                <p>If you have any questions, do not hesitate to contact us.</p>\n"
+"                <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"                <br/>\n"
+"                <br/>\n"
+"                <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"                    <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"                        <strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n"
+"                </div>\n"
+"                <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"                    <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"                        ${object.company_id.partner_id.sudo().with_context(show_address=True, html_format=True).name_get()[0][1] | safe}\n"
+"                    </span>\n"
+"                    % if object.company_id.phone:\n"
+"                        <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;\">\n"
+"                            Phone: ${object.company_id.phone}\n"
+"                        </div>\n"
+"                    % endif\n"
+"                    % if object.company_id.website:\n"
+"                        <div>\n"
+"                            Web: <a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n"
+"                        </div>\n"
+"                    %endif\n"
+"                    <p></p>\n"
+"                </div>\n"
+"            </div>\n"
+"        "
+msgstr "\n"
+"            <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                <p>Hello ${object.tenant_id.name or ''},</p>\n"
+"                <p>A new contract has been created: </p>\n"
+"\n"
+"                <p style=\"border-left: 1px solid #8e0000; margin-left: 40px;\">\n"
+"                   <strong>REFERENCES</strong><br />\n"
+"                   Contract: <strong>${object.name}</strong><br />\n"
+"                   % if object.rent_start_date:\n"
+"                   Contract Date Start: ${object.rent_start_date or ''}<br />\n"
+"                   % endif\n"
+"\n"
+"                   % if object.write_uid:\n"
+"                   % if object.write_uid.email:\n"
+"                   Your Contact: <a href=\"mailto:${object.write_uid.email or ''}?subject=Contract%20${object.name}\">${object.write_uid.name}</a>\n"
+"                   % else:\n"
+"                   Your Contact: ${object.write_uid.name}\n"
+"                   % endif\n"
+"                   % endif\n"
+"                </p>\n"
+"\n"
+"                <br/>\n"
+"                <p>If you have any questions, do not hesitate to contact us.</p>\n"
+"                <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>\n"
+"                <br/>\n"
+"                <br/>\n"
+"                <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"                    <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"                        <strong style=\"text-transform:uppercase;\">${object.company_id.name}</strong></h3>\n"
+"                </div>\n"
+"                <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"                    <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"                        ${object.company_id.partner_id.sudo().with_context(show_address=True, html_format=True).name_get()[0][1] | safe}\n"
+"                    </span>\n"
+"                    % if object.company_id.phone:\n"
+"                        <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;\">\n"
+"                            Phone: ${object.company_id.phone}\n"
+"                        </div>\n"
+"                    % endif\n"
+"                    % if object.company_id.website:\n"
+"                        <div>\n"
+"                            Web: <a href=\"${object.company_id.website}\">${object.company_id.website}</a>\n"
+"                        </div>\n"
+"                    %endif\n"
+"                    <p></p>\n"
+"                </div>\n"
+"            </div>\n"
+"        "
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_invoice_count
+msgid "# Invoice"
+msgstr "# فاتورة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_tenancy_count
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_tenancy_count
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_partner_tenancy_count
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_users_tenancy_count
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_sale_order_tenancy_count
+msgid "# of Tenancy"
+msgstr "# الايجار"
+
+#. module: zero_rental_sale_property
+#: model:mail.template,subject:zero_rental_sale_property.email_contract_template
+msgid "${object.company_id.name} Contract (Ref ${object.name or 'n/a'})"
+msgstr "${object.company_id.name} العقد (Ref ${object.name or 'n/a'})"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.maintenance_period_form_view
+msgid "<b><span style=\"padding-right:15px;\">Repeat every </span></b>"
+msgstr "<b><span style=\"padding-right:15px;\">التكرار كل </span></b>"
+
+#. module: zero_rental_sale_property
+#: code:addons/zero_rental_sale_property/models/tenancy.py:304
+#, python-format
+msgid "<h3>Reminder Recurrent Payment!</h3><br/>Hi %s, <br/> This is to remind you that the recurrent payment for the rental contract has to be done.Please make the payment at the earliest.<br/><br/>Please find the details below:<br/><br/><table><tr><td>Contract Ref<td/><td> %s<td/><tr/>"
+msgstr "<h3>تذكير مع كل  موعد دفعة!</h3><br/>Hi %s, <br/> هذا هو تذكيرك مع كل دفعة لعقد الإيجار. يرجى إجراء الدفع في أقرب وقت ممكن.<br/><br/>يرجى الاطلاع على التفاصيل أدناه:<br/><br/><table><tr><td>Contract Ref<td/><td> %s<td/><tr/>"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.report_contract_document
+msgid "<strong>Contract: </strong>"
+msgstr "<strong>العقد: </strong>"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.report_contract_document
+msgid "<strong>Date Start: </strong>"
+msgstr "<strong>تاريخ البداية: </strong>"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.report_contract_document
+msgid "<strong>Partner:</strong>"
+msgstr "<strong>شريك العمل:</strong>"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.report_contract_document
+msgid "<strong>Recurring Items</strong>"
+msgstr "<strong>عنصر التكرار</strong>"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.report_contract_document
+msgid "<strong>Responsible: </strong>"
+msgstr "<strong>المسئول: </strong>"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_name
+msgid "Account/Contract Name"
+msgstr "حساب/اسم جهةالاتصال"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Accounting"
+msgstr "الحسابات"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Address"
+msgstr "العنوان"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_property_age
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_property_age
+msgid "Age of Property"
+msgstr "عمرالعقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_recurring_amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_annual_cleaning_fees
+msgid "Annual Cleaning Fees"
+msgstr "رسوم النظافة السنوية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_extra_annual_fees
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_extra_annual_fees
+msgid "Annual Extra Fees"
+msgstr "الرسوم السنوية الاضافية"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Annual Fees"
+msgstr "الرسوم السنوية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_maintenance_annual_fees
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_maintenance_annual_fees
+msgid "Annual Maintenance Fees"
+msgstr "رسوم الصيانة السنوية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_annual_rent
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_annual_rent
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_annual_rent
+msgid "Annual Rent"
+msgstr "الايجار السنوي"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_annual_service_fees
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_annual_service_fees
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_annual_service_fees
+msgid "Annual Service Fees"
+msgstr "رسوم الخدمات الاخرى السنوية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_area
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_area
+msgid "Area (m)"
+msgstr "المساحة م2"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_asset_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_asset_id
+msgid "Asset"
+msgstr "الأصل"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_hierarchy
+msgid "Asset Hierarchy"
+msgstr "هرم الاصل"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_account_asset_depreciation_line
+msgid "Asset depreciation line"
+msgstr "بند إستهلاك الأصل"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_assign_to
+msgid "Assign to"
+msgstr "الاسنادالى"
+
+#. module: zero_rental_sale_property
+#: model:property.stage,name:zero_rental_sale_property.property_stage2
+msgid "Available"
+msgstr "متاح"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_bath_rooms
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_bath_rooms
+msgid "Bathrooms"
+msgstr "الحمامات"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_bed_rooms
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_bed_rooms
+msgid "Bedrooms"
+msgstr "غرف النوم"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_brokerage_fees
+msgid "Brokerage Fees (%)"
+msgstr "عمولة السمسرة (%)"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_brokerage_fees_amount
+msgid "Brokerage fees"
+msgstr "عمولة السمسرة"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Built in"
+msgstr "تم البناء في"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: zero_rental_sale_property
+#: selection:rental.tenancy,state:0
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_cheque_detail
+msgid "Cheque Detail"
+msgstr "تفاصيل الشيك"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_property_ids
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_property_ids
+msgid "Child Properties"
+msgstr "العقارات الفرعية"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_city
+msgid "Cities"
+msgstr "المدن"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.view_res_city_action
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_city_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_city_id
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.res_city_tree_view
+msgid "City"
+msgstr "المدينة"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,help:zero_rental_sale_property.property_stage_action
+msgid "Click to set a new stage in your product pipeline."
+msgstr "انقر لانشاءمرحلة جديدة في مسار تاجير العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: zero_rental_sale_property
+#: selection:rental.tenancy,state:0
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_company_id
+msgid "Company"
+msgstr "المؤسسة"
+
+#. module: zero_rental_sale_property
+#: code:addons/zero_rental_sale_property/models/tenancy.py:338
+#, python-format
+msgid "Compose Email"
+msgstr "انشاء بريد الكتروني"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Compute Depreciation"
+msgstr "احتساب الإهلاك"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_condition
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_condition
+msgid "Conditions"
+msgstr "الشروط"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_conf
+msgid "Configration"
+msgstr "الاعدادات"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.report.xml,name:zero_rental_sale_property.report_contract
+#: model:mail.template,report_name:zero_rental_sale_property.email_contract_template
+msgid "Contract"
+msgstr "العقد"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Contract Information"
+msgstr "معلومات عن العقد"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_country_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_country_id
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Country"
+msgstr "دولة"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.contract_sale_view_form
+msgid "Create Contract"
+msgstr "انشاء عقد جديد"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.contract_sale_view_form
+msgid "Create Invoice"
+msgstr "إنشاء فاتورة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_maintenance_type_create_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_create_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_type_create_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_create_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type_create_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_create_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_city_create_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_room_type_create_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_utility_type_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_maintenance_type_create_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_create_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_type_create_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_create_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type_create_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_create_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_city_create_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_room_type_create_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_utility_type_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_schedule_date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_property_account_deferred_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_property_account_deferred_id
+msgid "Deferred Income Account"
+msgstr "حساب الايراد المؤجل"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Depreciation"
+msgstr "إستهلاك"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Depreciation Board"
+msgstr "لوحة الإستهلاكات"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Depreciation Information"
+msgstr "معلومات الإستهلاك"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_depreciation_line_ids
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_depreciation_line_ids
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Depreciation Lines"
+msgstr "بنود الإستهلاك"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_name
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Description"
+msgstr "الوصف"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_maintenance_type_display_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_display_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_type_display_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_display_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type_display_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_display_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_city_display_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_room_type_display_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_utility_type_display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: zero_rental_sale_property
+#: selection:product.template,facing:0
+msgid "East"
+msgstr "الشرق"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_end_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_end_date
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rental_tenancy_rent_end_date
+msgid "Ending date of your contract"
+msgstr "تاريخ انتهاء العقد"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_rent_end_date
+msgid "Expiration Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_extra_annual_fees
+msgid "Extra Annual Fees"
+msgstr "رسوم سنوية اضافية اخرى"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_facing
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_facing
+msgid "Facing"
+msgstr "الواجهة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_first_payment_date
+msgid "First Payment"
+msgstr "اول دفعة سداد"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_fold
+msgid "Folded in Pipeline"
+msgstr "طي المسار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rental_tenancy_cost_frequency
+msgid "Frequency of the recurring cost"
+msgstr "Frequency of the recurring cost"
+
+#. module: zero_rental_sale_property
+#: selection:product.template,furnishing:0
+msgid "Full Furnished"
+msgstr "مفروش بالكامل"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_furnishing
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_furnishing
+msgid "Furnishing"
+msgstr "مفروش"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_garages
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_garages
+msgid "Garages"
+msgstr "جراج"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "General Information"
+msgstr "المعلومات العامة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_value
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_value
+msgid "Gross Value"
+msgstr "إجمالي القيمة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_maintenance_type_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_type_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_city_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_room_type_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_utility_type_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rental_tenancy_attachment_ids
+msgid "Images of the contract/any attachments"
+msgstr "صورة من العقد/اي مرفقات اخرى"
+
+#. module: zero_rental_sale_property
+#: selection:rental.tenancy,state:0
+msgid "In Progress"
+msgstr "تحت التنفيذ"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_account_invoice
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Invoices"
+msgstr "الفواتير"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_sale_order_is_rent
+msgid "Is Rent"
+msgstr "Is Rent"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_rent_ok
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_rent_ok
+msgid "Is Rental Product"
+msgstr "وحدة للايجار؟"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_grouped
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_grouped
+msgid "Is a Parent"
+msgstr "مبنى؟"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_product_product_salvage_value
+#: model:ir.model.fields,help:zero_rental_sale_property.field_product_template_salvage_value
+msgid "It is the amount you plan to have that you cannot depreciate."
+msgstr "هو المبلغ الذي سيبقى بدون إستهلاك."
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_journal_id
+msgid "Journal"
+msgstr "اليومية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_journal_entry_id
+msgid "Journal Entry"
+msgstr "قيد يومية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر يومية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_maintenance_type___last_update
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage___last_update
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_type___last_update
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule___last_update
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type___last_update
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy___last_update
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_city___last_update
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_room_type___last_update
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_utility_type___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_maintenance_type_write_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_write_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_type_write_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_write_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type_write_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_write_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_city_write_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_room_type_write_uid
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_utility_type_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_maintenance_type_write_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_write_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_type_write_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_write_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type_write_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_write_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_city_write_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_room_type_write_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_utility_type_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: zero_rental_sale_property
+#: selection:product.template,ownership:0
+msgid "Leasehold"
+msgstr "مسؤول المستأجر"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_image
+msgid "Logo"
+msgstr "شعار"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.action_maintenance_type
+#: model:ir.model,name:zero_rental_sale_property.model_maintenance_type
+#: model:ir.ui.menu,name:zero_rental_sale_property.maintenance_type
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.maintenance_type_tree_view
+msgid "Maintenance Type"
+msgstr "نوع الصيانة "
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_monthly_rent
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_monthly_rent
+msgid "Monthly Rent"
+msgstr "ايجار شهري"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_maintenance_type_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_type_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_city_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_room_type_name
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_utility_type_name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: zero_rental_sale_property
+#: sql_constraint:product.template:0
+msgid "Name of property must be unique."
+msgstr "اسم الوحدة يجب الا يتكرر."
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_partner_national_id_no
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_res_users_national_id_no
+msgid "National ID Number"
+msgstr "رقم هوية التعريف"
+
+#. module: zero_rental_sale_property
+#: sql_constraint:res.partner:0
+msgid "National ID Number must be unique"
+msgstr "رقم هوية التعريف يجب الا يتكرر"
+
+#. module: zero_rental_sale_property
+#: selection:rental.tenancy,state:0
+msgid "New"
+msgstr "جديد"
+
+#. module: zero_rental_sale_property
+#: selection:product.template,furnishing:0
+msgid "None"
+msgstr "بدون"
+
+#. module: zero_rental_sale_property
+#: selection:product.template,facing:0
+msgid "North"
+msgstr "شمال"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_notes
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_notes
+msgid "Notes"
+msgstr "الملاحظات"
+
+#. module: zero_rental_sale_property
+#: model:property.stage,name:zero_rental_sale_property.property_stage3
+msgid "On Lease"
+msgstr "مستأجرة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_ownership
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_ownership
+msgid "Ownership"
+msgstr "الملكية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_parent_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_parent_id
+msgid "Parent Property"
+msgstr "المبنى"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_res_partner
+msgid "Partner"
+msgstr "شريك"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_payment_entry_id
+msgid "Payment"
+msgstr "السداد"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_payment_info
+msgid "Payment Stage"
+msgstr "مرحلة السداد"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_account_payment
+msgid "Payments"
+msgstr "مدفوعات"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_period
+msgid "Period (months)"
+msgstr "غترات شهرية"
+
+#. module: zero_rental_sale_property
+#: code:addons/zero_rental_sale_property/models/tenancy.py:162
+#, python-format
+msgid "Please define Receivable account for this tenant"
+msgstr "يرجى تحديد حساب القبض لهذا المستأجر"
+
+#. module: zero_rental_sale_property
+#: code:addons/zero_rental_sale_property/models/tenancy.py:212
+#, python-format
+msgid "Please define a sale journal for the company '%s'."
+msgstr "برجاء تحديد يومية المبيعات '%s'."
+
+#. module: zero_rental_sale_property
+#: code:addons/zero_rental_sale_property/models/tenancy.py:429
+#, python-format
+msgid "Please define deferred income account for this property"
+msgstr "برجاء تحديد حساب الايراد المقدم لهذا العقار"
+
+#. module: zero_rental_sale_property
+#: code:addons/zero_rental_sale_property/models/tenancy.py:421
+#, python-format
+msgid "Please define income account for this property"
+msgstr "برجاء تحديد حساب الايراد لهذا العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_is_posted
+msgid "Posted"
+msgstr "مرحل"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_previous_state
+msgid "Previous State"
+msgstr "الحالة السابقة"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.product_hierarchy_action
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_tree_hierarchy
+msgid "Product Hierarchy"
+msgstr "هرم العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Product Images"
+msgstr "صورة العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Product Name"
+msgstr "اسم العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_product_template
+msgid "Product Template"
+msgstr "قالب العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Products"
+msgstr "العقارات والاصناف الاخرى"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.view_property_action
+msgid "Properties"
+msgstr "العقارات"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_account_asset_depreciation_line_property_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_property_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_property_id
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rent_schedule_property_id
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rental_tenancy_property_id
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_item
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_mgt
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_tree
+msgid "Property"
+msgstr "العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_mgt_root
+msgid "Property Management"
+msgstr "ادارة العقارات"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_property_manager
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_property_manager
+msgid "Property Manager"
+msgstr "مدير العقارات"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Property Rent"
+msgstr "ايجار العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_stage
+msgid "Property Stages"
+msgstr "مراحل تأجير العقارات"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.action_property_type
+#: model:ir.model,name:zero_rental_sale_property.model_property_type
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_property_type
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_property_type
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_type
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.property_type_tree_view
+msgid "Property Type"
+msgstr "نوع العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_property_code
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_property_code
+msgid "Property code"
+msgstr "كود العقار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_cost_frequency
+msgid "Recurrency"
+msgstr "التكرارية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_recurring_line
+msgid "Recurring line"
+msgstr "تفاصيل التكرارية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_reference
+msgid "Reference"
+msgstr "مرجع"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Rent & Annual Fees"
+msgstr "الايجار & الرسوم السنوية"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.action_rent_type
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.rent_type_tree_view
+msgid "Rent Periods"
+msgstr "فترات الايجار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rental_tenancy_recurring_line
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_schedule_calendar
+msgid "Rent Schedule"
+msgstr "جدولة الايجار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_rent_type
+#: model:ir.ui.menu,name:zero_rental_sale_property.rent_type
+msgid "Rent Type"
+msgstr "نوع الايجار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_type_repeat_number
+msgid "Repeat every"
+msgstr "كرر كل"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Reset"
+msgstr "اعادة التهيئة"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Residual"
+msgstr "المتبقي"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_value_residual
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_value_residual
+msgid "Residual Value"
+msgstr "القيمة التخريدية"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.action_room_type
+#: model:ir.model,name:zero_rental_sale_property.model_room_type
+#: model:ir.ui.menu,name:zero_rental_sale_property.room_type
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.room_type_tree_view
+msgid "Room Type"
+msgstr "نوع الغرفة"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Run Schedule"
+msgstr "نفذ الجدولة"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.res_partner_tenant_view
+#: model:property.stage,name:zero_rental_sale_property.property_stage1
+msgid "Sale"
+msgstr "بيع"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_sale_id
+msgid "Sale id"
+msgstr "مرجع البيع"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_sales_person
+msgid "Sales Person"
+msgstr "رحل البيع"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_salvage_value
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_salvage_value
+msgid "Salvage Value"
+msgstr "القيمة المحفوظة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_account_payment_schedule_id
+msgid "Schedule id"
+msgstr "رقم الجدولة"
+
+#. module: zero_rental_sale_property
+#: selection:product.template,furnishing:0
+msgid "Semi Furnished"
+msgstr "نصف مفروش"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Send by Email"
+msgstr "إرسال بالبريد الالكتروني"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_sequence
+msgid "Sequence"
+msgstr "المسلسل"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_is_default
+msgid "Set as Default Stage"
+msgstr "التعيين كمرحلة افتراضية"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Similar Properties"
+msgstr "عقارات مشابهه"
+
+#. module: zero_rental_sale_property
+#: model:property.stage,name:zero_rental_sale_property.property_stage4
+msgid "Sold"
+msgstr "مباعة"
+
+#. module: zero_rental_sale_property
+#: selection:product.template,facing:0
+msgid "South"
+msgstr "جنوب"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_stage_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_stage_id
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_stage_form
+msgid "Stage"
+msgstr "المرحلة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_property_stage_name
+msgid "Stage Name"
+msgstr "اسم المرحلة"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_stage_search
+msgid "Stage Search"
+msgstr "البحث في المرحلة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_property_stage
+msgid "Stage of case"
+msgstr "مرحلة الحالة"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.property_stage_action
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_stage_tree
+msgid "Stages"
+msgstr "المراحل"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,help:zero_rental_sale_property.property_stage_action
+msgid "Stages allow to easily track how a specific product\n"
+"            is positioned in the sales cycle."
+msgstr "المراحل تسمح بمتابعة عقار معين بسهولة\n"
+"            يتم وضعة في دورة المبيعات."
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Start"
+msgstr "البداية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_start_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_start_date
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_rent_start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rental_tenancy_rent_start_date
+msgid "Starting date of your contract"
+msgstr "تاريخ بداية التعاقد"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_state_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_state_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_state
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "State"
+msgstr "المحافظة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_street
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_street
+msgid "Street"
+msgstr "الشارع"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Street 2..."
+msgstr "الشارع 2"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Street..."
+msgstr "الشارع..."
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_street2
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_street2
+msgid "Street2"
+msgstr "الشارع ٢"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Sub Properties"
+msgstr "العقارات الفرعية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_tenant_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_tenant_id
+msgid "Tanent"
+msgstr "المستأجر"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.menu,name:zero_rental_sale_property.rental_tasks
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.view_tenancy_action
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_account_invoice_tenancy_id
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_sale_order_tenancy
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_tenancy
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.contract_sale_view_form
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.res_partner_tenant_view
+msgid "Tenancy"
+msgstr "التأجير"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_attachment_ids
+msgid "Tenancy Contract"
+msgstr "عقود التأجير"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rent_schedule_rental_schedule
+msgid "Tenancy Number"
+msgstr "رقم التأجير"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.view_tenancy_schedule_action
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_tenancy_schedule
+msgid "Tenancy Rent Schedule"
+msgstr "جدولة القيمة الايجارية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_account_move_line_tenancy_id
+msgid "Tenancy id"
+msgstr "معرف الايجار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_tenancy_ids
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_tenancy_ids
+msgid "Tenancy ids"
+msgstr "معرفات الايجار"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rent_schedule_tenant_id
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rental_tenancy_tenant_id
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_tree
+msgid "Tenant"
+msgstr "المستأجر"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_tenant
+msgid "Tenant Details"
+msgstr "تفاصيل عن المستأجر"
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.view_tenant_action
+msgid "Tenants"
+msgstr "المستاجرين"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.view_tenancy_form
+msgid "Terms and Conditions"
+msgstr "الشروط والاحكام"
+
+#. module: zero_rental_sale_property
+#: code:addons/zero_rental_sale_property/models/tenancy.py:248
+#, python-format
+msgid "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
+msgstr "لا يوجد حساب للايراد معرف لهذا العقار: \"%s\". ربما تكون بحاجة الى اضافة دليل الحسابات من التطبيقات او قائمة الاعدادات."
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_product_product_property_account_deferred_id
+#: model:ir.model.fields,help:zero_rental_sale_property.field_product_template_property_account_deferred_id
+msgid "This account will be used for invoices instead of the default one to value expenses for the current product."
+msgstr "سيُستخدم هذا الحساب للفواتير بدلاً من الحساب الافتراضي لتقييم المصروفات للمنتج الحالي."
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_rental_tenancy_image
+msgid "This field holds the image used as image for the product, limited to 1024x1024px."
+msgstr "يحتوي هذا الحقل على الصورة المستخدمة كصورة للعقار, limited to 1024x1024px."
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_property_stage_fold
+msgid "This stage is folded in the kanban view when there are no records in that stage to display."
+msgstr "يتم طي هذه المرحلة في طريقة عرض kanban عندما لا توجد سجلات في تلك المرحلة لعرضها."
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_total_rent
+msgid "Total Amount Due"
+msgstr "اجمالى المبالغ المستحقة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_total_annual_fees
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_total_annual_fees
+msgid "Total Annual Fees"
+msgstr "اجمالي الرسوم السنوية"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_total_fees
+msgid "Total Fees"
+msgstr "اجمالي الرسوم"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.menu,name:zero_rental_sale_property.property_types
+msgid "Types"
+msgstr "انواع العقارات"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_property_stage_sequence
+msgid "Used to order stages. Lower is better."
+msgstr "تستخدم لترتيب المراحل.الاقل هو الافضل."
+
+#. module: zero_rental_sale_property
+#: model:ir.actions.act_window,name:zero_rental_sale_property.action_utility_type
+#: model:ir.model,name:zero_rental_sale_property.model_utility_type
+#: model:ir.ui.menu,name:zero_rental_sale_property.utility_type
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.utility_type_tree_view
+msgid "Utility Type"
+msgstr "نوع الاضافة"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.report_contract_document
+msgid "VAT:"
+msgstr "ضريبة القيمة المضافة:"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Variant Prices"
+msgstr "أسعار الموديلات"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "Website"
+msgstr "الموقع الإلكتروني"
+
+#. module: zero_rental_sale_property
+#: selection:product.template,facing:0
+msgid "West"
+msgstr "الغرب"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.product_property_form_view
+msgid "ZIP"
+msgstr "الرمز البريدي"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_product_zip
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_product_template_zip
+msgid "Zip"
+msgstr "الرمز البريدي"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.res_partner_tenant_view
+msgid "is a Tenant"
+msgstr "مستأجر؟"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,field_description:zero_rental_sale_property.field_rental_tenancy_is_scheduled
+msgid "is scheduled"
+msgstr "مجدولة؟"
+
+#. module: zero_rental_sale_property
+#: model:ir.ui.view,arch_db:zero_rental_sale_property.maintenance_period_form_view
+msgid "months"
+msgstr "أشهر"
+
+#. module: zero_rental_sale_property
+#: model:ir.model.fields,help:zero_rental_sale_property.field_product_product_grouped
+#: model:ir.model.fields,help:zero_rental_sale_property.field_product_template_grouped
+msgid "parent property can contain multiple properties"
+msgstr "يمكن أن يحتوي العقار الاب على عقارات متعددة"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_rent_schedule
+msgid "rent.schedule"
+msgstr "rent.schedule"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_rental_tenancy
+msgid "rental.tenancy"
+msgstr "rental.tenancy"
+
+#. module: zero_rental_sale_property
+#: model:ir.model,name:zero_rental_sale_property.model_res_city
+msgid "res.city"
+msgstr "res.city"
