@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+        id="report_contract"
+        model="rental.tenancy"
+        string="Contract"
+        report_type="qweb-pdf"
+        name="zero_rental_sale_property.report_contract_document"
+        file="zero_rental_sale_property.report_contract"/>
+
+</odoo>
