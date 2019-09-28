@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
-    <data>
+    <data noupdate="1">
         <record id="sequence_contract_rental" model="ir.sequence">
             <field name="name">Contract Rental Sequence</field>
             <field name="code">contract.rental.sequence</field>
@@ -10,6 +10,8 @@
             <field eval="True" name="use_date_range"/>
             <field name="padding">4</field>
         </record>
+    </data>
+    <data>
 
     <record id="view_tenancy_form" model="ir.ui.view">
         <field name="name">rental.tenancy.form</field>
@@ -124,7 +126,23 @@
         </field>
     </record>
 
-   
+    <record model="ir.ui.view" id="view_tenancy_tree">
+        <field name="name">rental.tenancy.tree</field>
+        <field name="model">rental.tenancy</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'" colors="grey:state == 'done';
+                          green:state == 'running';red:state == 'cancel';">
+                <field name="name"/>
+                <field name="tenant_id" string="Tenant"/>
+                <field name="property_id" string="Property" create = "True"/>
+                <!--<field name="cost"/>-->
+                <field name="rent_start_date"/>
+                <field name="rent_end_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
 
     <record id="view_tenancy_action" model="ir.actions.act_window">
         <field name="name">Tenancy</field>
