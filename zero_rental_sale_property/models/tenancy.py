@@ -1,12 +1,7 @@
-from datetime import datetime, date
-def convert_date(x,y,z):
-    orig_date = datetime(x,y,z)
-    orig_date = str(orig_date)
-    d = datetime.strptime(orig_date, '%Y-%m-%d %H:%M:%S')
-    d = d.strftime('%m/%d/%y')
-    return d
+from datetime import datetime
+from datetime import date
 from dateutil.relativedelta import relativedelta
-
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from odoo import models, fields, api, _, exceptions
 from odoo.exceptions import UserError, Warning
 
