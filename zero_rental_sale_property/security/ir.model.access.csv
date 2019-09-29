@@ -1,14 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-normal_user,Normal User,model_lb_estate,acces_module_rental_estate,1,1,1,1
-normal_user1,Normal User,model_lb_type,acces_module_rental_type,1,1,1,1
-normal_user2,Normal User,model_res_partner,acces_module_rental_tenant,1,1,1,1
-normal_user5,Normal User,model_lb_rental,acces_module_rental_rental,1,1,1,1
-normal_user6,Normal User,model_lb_payment,acces_module_rental_payment,1,1,1,1
-normal_user7,Normal User,model_lb_estate_status,acces_module_rental_estate_status,1,1,1,1
-normal_user8,Normal User,model_lb_registering_estate_status,acces_module_estate_status_registering_estate_status,1,1,1,1
-normal_user9,Normal User,model_lb_lessor,acces_module_rental_owner,1,1,1,1
-normal_user10,Normal User,model_lb_lead,acces_module_lead,1,1,1,1
-normal_user11,Normal User,model_lb_city,acces_module_city,1,1,1,1
-normal_user12,Normal User,model_lb_district,acces_module_district,1,1,1,1
-normal_user13,Normal User,model_lb_contact,acces_module_contact,1,1,1,1
-
+normal_user,Normal User,model_property.stage,acces_module_property.stage,1,1,1,1
+normal_user1,Normal User,model_maintenance.type,acces_module_maintenance.type,1,1,1,1
+normal_user2,Normal User,model_room.type,acces_module_room.type,1,1,1,1
+normal_user5,Normal User,model_rent.type,acces_module_rent.type,1,1,1,1
+normal_user6,Normal User,model_rental.tenancy,acces_module_rental.tenancyt,1,1,1,1
+normal_user7,Normal User,model_utility.type,acces_module_utility.type,1,1,1,1
+normal_user8,Normal User,model_res.city,acces_module_res.city,1,1,1,1
+normal_user9,Normal User,model_property.type,acces_module_property.type,1,1,1,1
