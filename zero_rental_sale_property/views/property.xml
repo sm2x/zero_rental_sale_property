@@ -80,8 +80,6 @@
                                 <div name="options" groups="base.group_user">
                                     <div>
                                         <field name="property_code"/>
-                                        <field name="grouped"/>
-                                        <label for="grouped"/>
                                     </div>
                                     <div>
                                         <field name="rent_ok"/>
