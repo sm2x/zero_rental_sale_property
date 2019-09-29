@@ -1,40 +1,29 @@
 <odoo>
     <data>
-        <record id="acces_module_rental_estate" model="res.groups">
-            <field name="name">Acces Estate</field>
+        <record id="acces_module_property.stage" model="res.groups">
+            <field name="name">property.stage</field>
         </record>
-        <record id="acces_module_rental_tenant" model="res.groups">
-            <field name="name">Acces Tenant</field>
+        <record id="acces_module_res.city" model="res.groups">
+            <field name="name">res.city</field>
         </record>
-        <record id="acces_module_rental_type" model="res.groups">
-            <field name="name">Acces Type</field>
+        <record id="acces_module_property.type" model="res.groups">
+            <field name="name">property.type</field>
         </record>
-        <record id="acces_module_rental_rental" model="res.groups">
-            <field name="name">Acces Rental</field>
+        <record id="acces_module_rental.tenancy" model="res.groups">
+            <field name="name">rental.tenancy</field>
         </record>
-        <record id="acces_module_rental_payment" model="res.groups">
-            <field name="name">Acces Payment</field>
+        <record id="acces_module_utility.type" model="res.groups">
+            <field name="name">utility.type</field>
         </record>
-        <record id="acces_module_rental_estate_status" model="res.groups">
-            <field name="name">Acces Estate Status</field>
+        <record id="acces_module_maintenance.type" model="res.groups">
+            <field name="name">maintenance.type</field>
         </record>
-        <record id="acces_module_estate_status_registering_estate_status" model="res.groups">
-            <field name="name">Acces registering status</field>
+        <record id="acces_module_room.type" model="res.groups">
+            <field name="name">room.type</field>
         </record>
-	        <record id="acces_module_rental_owner" model="res.groups">
-            <field name="name">Acces Owner</field>
+	        <record id="acces_module_rent.type" model="res.groups">
+            <field name="name">rent.type</field>
         </record>
-	    <record id="acces_module_lead" model="res.groups">
-            <field name="name">Acces Lead</field>
-        </record>
-	    <record id="acces_module_contact" model="res.groups">
-            <field name="name">Acces Contact</field>
-        </record>
-	    <record id="acces_module_district" model="res.groups">
-            <field name="name">Acces District</field>
-        </record>
-	    <record id="acces_module_city" model="res.groups">
-            <field name="name">Acces city</field>
-        </record>
+	   
     </data>
 </odoo>
