@@ -9,8 +9,9 @@
     'company': 'Zero for Information Systems',
     'website': "https://www.erpzero.com",
     'email': "sales@erpzero.com",
-    "data": [
-        'security/security.xml','security/ir.model.access.csv','report/report_contract.xml',
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv','report/report_contract.xml',
         'report/contract_views.xml','views/property.xml',
         'views/tenant.xml',
         'views/tenancy.xml',
