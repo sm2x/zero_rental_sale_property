@@ -40,7 +40,7 @@ class Tenancy(models.Model):
 
     total_rent = fields.Float('Total Amount Due',compute='compute_total_rent')
     total_fees = fields.Float('Total Fees',compute='compute_total_rent')
-    rent_start_date = fields.Date(string="Start Date", required=True, default=datetime.today(),help="Starting date of your contract", track_visibility='onchange')
+    rent_start_date = fields.Date(string="Start Date", required=True, default=date.today(),help="Starting date of your contract", track_visibility='onchange')
     rent_end_date = fields.Date(string="Expiration Date", required=True, help="Ending date of your contract", track_visibility='onchange')
 
     state = fields.Selection([('draft', 'New'), ('running', 'In Progress'), ('cancel', 'Cancelled'),('done', 'Closed')], string="State", default="draft", copy=False, track_visibility='onchange')
@@ -99,7 +99,7 @@ class Tenancy(models.Model):
     @api.onchange('rent_start_date','period')
     def compute_end_rent_date(self):
         for each in self:
-            each.rent_end_date = str(datetime.strptime(each.rent_start_date, '%Y-%m-%d').date() + relativedelta(months=+each.period))
+            each.rent_end_date = str(date.strptime(each.rent_start_date, '%Y-%m-%d').date() + relativedelta(months=+each.period))
 
     @api.onchange('property_id')
     def set_property_details(self):
@@ -275,8 +275,8 @@ class Tenancy(models.Model):
     @api.multi
     def action_schedule(self):
         for each in self:
-            start_date = datetime.strptime(each.rent_start_date, '%Y-%m-%d').date()
-            end_date = datetime.strptime(each.rent_end_date, '%Y-%m-%d').date()
+            start_date = date.strptime(each.rent_start_date, '%Y-%m-%d').date()
+            end_date = date.strptime(each.rent_end_date, '%Y-%m-%d').date()
             if end_date > start_date:
                 each.tenancy_scheduler(start_date,end_date)
 
@@ -285,7 +285,7 @@ class Tenancy(models.Model):
         recurring_obj = self.env['rent.schedule']
         for tenancy in self:
             if tenancy.rent_start_date:
-                next_rent = str(datetime.strptime(tenancy.rent_start_date, '%Y-%m-%d').date() + relativedelta(months=+tenancy.cost_frequency.repeat_number))
+                next_rent = str(date.strptime(tenancy.rent_start_date, '%Y-%m-%d').date() + relativedelta(months=+tenancy.cost_frequency.repeat_number))
             if tenancy.cost_frequency.repeat_number:
                 recurring_number = 12/ tenancy.cost_frequency.repeat_number
                 recurring_amount = tenancy.total_rent / recurring_number
@@ -299,7 +299,7 @@ class Tenancy(models.Model):
                         'recurring_amount': recurring_amount,
                     }
                     recurring_obj.create(recurring_data)
-                    next_rent = str(datetime.strptime(next_rent, '%Y-%m-%d').date() + relativedelta(months=+tenancy.cost_frequency.repeat_number))
+                    next_rent = str(date.strptime(next_rent, '%Y-%m-%d').date() + relativedelta(months=+tenancy.cost_frequency.repeat_number))
                 tenancy.is_scheduled = True
                 mail_content = _(
                     '<h3>Reminder Recurrent Payment!</h3><br/>Hi %s, <br/> This is to remind you that the '
