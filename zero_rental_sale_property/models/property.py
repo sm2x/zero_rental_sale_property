@@ -43,7 +43,8 @@ class Property(models.Model):
     property_ids = fields.One2many(
         #comodel_name='product.template', string='Child Properties', inverse_name='parent_id', readonly=False, required=False)
     property_type = fields.Many2one('property.type', 'Property Type')
-        furnishing = fields.Selection([('none', 'None'), ('semi_furnished', 'Semi Furnished'), ('full_furnished', 'Full Furnished')], string="Furnishing")
+    property_manager = fields.Many2one('res.users', 'Property Manager')
+    furnishing = fields.Selection([('none', 'None'), ('semi_furnished', 'Semi Furnished'), ('full_furnished', 'Full Furnished')], string="Furnishing")
         finishing = fields.Selection([('none', 'None'), ('semi_finished', 'Semi Finished'), ('full_finished', 'Full Finished')], string="Finishing")
     bed_rooms = fields.Integer('Bedrooms')
     bath_rooms = fields.Integer('Bathrooms')
