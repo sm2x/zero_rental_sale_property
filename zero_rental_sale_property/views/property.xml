@@ -111,7 +111,7 @@
                                     <field name="currency_id" readonly="False"/>
                                 </group>
                                 <group>
-                                    <field name="parent_id"  domain="[('grouped', '=', True)]"/>
+                                    <!---field name="parent_id"  domain="[('grouped', '=', True)]"/>-->
                                     <field name="property_type"/>
                                     <field name="property_manager"/>
                                     <field name="furnishing"/>
@@ -354,28 +354,28 @@
 
 
         <!--Property Hierarchy-->
-        <record id="product_tree_hierarchy" model="ir.ui.view">
+        <!--record id="product_tree_hierarchy" model="ir.ui.view">
             <field name="name">product.tree.hierarchy</field>
             <field name="model">product.template</field>
             <field name="field_parent">property_ids</field>
             <field name="arch" type="xml">
                 <tree string="Product Hierarchy" toolbar="1" >
                     <!--<field name="code" context="{'form_view_ref': 'account.view_account_form'}"/>-->
-                    <field name="name"/>
+                    <!--field name="name"/>
                     <!--<field name="user_type_id"/>-->
                     <!--<field name="currency_id" options="{'no_create': True}" groups="base.group_multi_currency"/>-->
                     <!--<field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>-->
-                </tree>
-            </field>
-        </record>
+                <!--/tree>
+            <!--/field>
+        <!--/record>-->
 
-        <record id="product_hierarchy_action" model="ir.actions.act_window">
+        <!-->record id="product_hierarchy_action" model="ir.actions.act_window">
             <field name="name">Product Hierarchy</field>
             <field name="res_model">product.template</field>
             <field name="view_type">tree</field>
             <field name="domain">[('parent_id','=',False)]</field>
             <field name="view_id" ref="product_tree_hierarchy"/>
-        </record>
+        </record>-->
 
         <record model="ir.ui.view" id="property_type_tree_view">
 			<field name="name">property.type.tree.view</field>
