@@ -99,7 +99,7 @@ class Tenancy(models.Model):
     @api.onchange('rent_start_date','period')
     def compute_end_rent_date(self):
         for each in self:
-            each.rent_end_date = str(datetime.strptime(each.rent_start_date, '%Y-%m-%d').date() + relativedelta(months=+each.period))
+            each.rent_end_date = str(datetime.strptime(each.rent_start_date, '%Y-%m-%d %H:%M:%S').date() + relativedelta(months=+each.period))
 
     @api.onchange('property_id')
     def set_property_details(self):
@@ -275,8 +275,8 @@ class Tenancy(models.Model):
     @api.multi
     def action_schedule(self):
         for each in self:
-            start_date = datetime.strptime(each.rent_start_date, '%Y-%m-%d').date()
-            end_date = datetime.strptime(each.rent_end_date, '%Y-%m-%d').date()
+            start_date = datetime.strptime(each.rent_start_date, '%Y-%m-%d %H:%M:%S').date()
+            end_date = datetime.strptime(each.rent_end_date, '%Y-%m-%d %H:%M:%S').date()
             if end_date > start_date:
                 each.tenancy_scheduler(start_date,end_date)
 
@@ -285,7 +285,7 @@ class Tenancy(models.Model):
         recurring_obj = self.env['rent.schedule']
         for tenancy in self:
             if tenancy.rent_start_date:
-                next_rent = str(datetime.strptime(tenancy.rent_start_date, '%Y-%m-%d').date() + relativedelta(months=+tenancy.cost_frequency.repeat_number))
+                next_rent = str(datetime.strptime(tenancy.rent_start_date, '%Y-%m-%d %H:%M:%S').date() + relativedelta(months=+tenancy.cost_frequency.repeat_number))
             if tenancy.cost_frequency.repeat_number:
                 recurring_number = 12/ tenancy.cost_frequency.repeat_number
                 recurring_amount = tenancy.total_rent / recurring_number
@@ -299,7 +299,7 @@ class Tenancy(models.Model):
                         'recurring_amount': recurring_amount,
                     }
                     recurring_obj.create(recurring_data)
-                    next_rent = str(datetime.strptime(next_rent, '%Y-%m-%d').date() + relativedelta(months=+tenancy.cost_frequency.repeat_number))
+                    next_rent = str(datetime.strptime(next_rent, '%Y-%m-%d %H:%M:%S').date() + relativedelta(months=+tenancy.cost_frequency.repeat_number))
                 tenancy.is_scheduled = True
                 mail_content = _(
                     '<h3>Reminder Recurrent Payment!</h3><br/>Hi %s, <br/> This is to remind you that the '
