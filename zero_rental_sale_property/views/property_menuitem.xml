@@ -9,7 +9,7 @@
         <menuitem id="property_tenant" name="Tenant Details" sequence="2" parent="property_mgt" action="view_tenant_action"/>
         <menuitem id="property_tenancy" name="Tenancy" sequence="3" parent="property_mgt" action="view_tenancy_action"/>
         <menuitem id="property_tenancy_schedule" name="Tenancy Rent Schedule" sequence="4" parent="property_mgt" action="view_tenancy_schedule_action"/>
-        <menuitem id="property_hierarchy" name="Asset Hierarchy" sequence="5" parent="property_mgt" action="product_hierarchy_action"/>
+        
 
         <menuitem id="property_stage" name="Property Stages" sequence="0" parent="property_conf" action="property_stage_action"/>
         <menuitem id="property_types" name="Types" sequence="2" parent="property_conf"/>
