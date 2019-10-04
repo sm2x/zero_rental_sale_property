@@ -6,6 +6,7 @@ from odoo import models, fields, api, _, exceptions
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from dateutil.relativedelta import relativedelta
 from odoo.exceptions import UserError, Warning
+FORMAT_DATE = "%Y-%m-%d %H:%M:%S"
 
 
 class Tenancy(models.Model):
