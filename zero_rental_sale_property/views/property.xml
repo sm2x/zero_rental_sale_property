@@ -44,6 +44,7 @@
                <field name="category_id" position='after'>
             <field name="barcode"/>
            </field>
+          </field>
         </record>
 
         <record model="ir.ui.view" id="product_property_form_view">
