@@ -41,10 +41,7 @@
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
                 <field name="barcode" position="replace"/>
-               <field name="category_id" position='after'>
-            <field name="barcode"/>
-           </field>
-          </field>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="product_property_form_view">
