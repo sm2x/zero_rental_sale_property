@@ -10,8 +10,6 @@
             <field eval="True" name="use_date_range"/>
             <field name="padding">4</field>
         </record>
-    </data>
-    <data>
 
     <record id="view_tenancy_form" model="ir.ui.view">
         <field name="name">rental.tenancy.form</field>
