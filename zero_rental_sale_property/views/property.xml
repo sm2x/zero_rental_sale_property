@@ -6,7 +6,7 @@
             <field name="name">Properties</field>
             <field name="res_model">product.template</field>
             <field name="view_type">form</field>
-            <field name="view_id" ref="product_property_stage_view"/>
+            <!--<field name="view_id" ref="product_property_stage_view"/>-->
             <field name="view_mode">kanban,tree,form</field>
         </record>
 
@@ -20,7 +20,7 @@
             <field name="arch" type="xml">
 				<kanban position="attributes">
                 <attribute name="default_group_by">stage_id</attribute>
-                    <field name="stage_id" options='{"group_by_tooltip": {"requirements": "Description", "legend_priority": "Use of stars"}}'/>
+                    <!--<field name="stage_id" options='{"group_by_tooltip": {"requirements": "Description", "legend_priority": "Use of stars"}}'/>-->
                 </kanban>
                 <field name="image_small" position="after">
                     <field name="stage_id"/>
@@ -41,8 +41,7 @@
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
                 <field name="barcode" position="replace"/>
-            <field name="barcode"/>
-           </field>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="product_property_form_view">
@@ -67,9 +66,9 @@
                                 <button class="oe_stat_button" name="website_publish_button" type="object" icon="fa-globe">
                                     <field name="website_published" widget="website_button"/>
                                 </button>
-                                <button class="oe_stat_button" name="action_view_sales" type="object" icon="fa-usd">
-                                    <field string="Sales" name="sales_count" widget="statinfo" />
-                                </button>
+                                <!--<button class="oe_stat_button" name="action_view_sales" type="object" icon="fa-usd">-->
+                                    <!--<field string="Sales" name="sales_count" widget="statinfo" />-->
+                               <!--</button>-->
                                <button name="action_view_contract" type="object" class="oe_stat_button" icon="fa-pencil-square-o">
                                     <field name="tenancy_count" widget="statinfo" string="Tenancy"/>
                                </button>
@@ -81,6 +80,7 @@
                                 <div name="options" groups="base.group_user">
                                     <div>
                                         <field name="property_code"/>
+                                        <label for="grouped"/>
                                     </div>
                                     <div>
                                         <field name="rent_ok"/>
@@ -110,20 +110,18 @@
                                     <field name="currency_id" readonly="False"/>
                                 </group>
                                 <group>
-                                    <field name="parent_id"  domain="[('grouped', '=', True)]"/>
                                     <field name="property_type"/>
                                     <field name="property_manager"/>
                                     <field name="furnishing"/>
-				    <field name="finishing"/>
                                     <field name="bed_rooms"/>
                                     <field name="bath_rooms"/>
                                     <field name="garages"/>
                                     <field name="facing"/>
                                     <field name="company_id" required="True" options="{'no_create': True}"/>
-                                    <field name="ownership"/>
-                                    <field name="condition"/>
-                                    <field name="start_date"/>
-                                    <field name="end_date"/>
+                                    <!--<field name="ownership"/>-->
+                                    <!--<field name="condition"/>-->
+                                    <!--<field name="start_date"/>-->
+                                    <!--<field name="end_date"/>-->
                                 </group>
                             </group>
                             <notebook>
@@ -227,8 +225,8 @@
                                             </group>
                                         </form>
                                     </field>
-                                
                                 </page>
+                                
                                 <page string="Accounting">
                                     <group>
                                         <group>
@@ -243,7 +241,7 @@
                                 <page string="Website">
                                     <group name="website" string="Website">
                                         <field name="website_url" invisible="1"/>
-                                        <field name="public_categ_ids" widget="many2many_tags" string="Website Categories"/>
+                                        <!--<field name="public_categ_ids" widget="many2many_tags" string="Website Categories"/>-->
                                         <field name="alternative_product_ids" string="Similar Properties" widget="many2many_tags"/>
                                     </group>
                                     <field name="product_image_ids" mode="kanban" context="{'default_name': name, 'default_product_tmpl_id': active_id}">
@@ -339,7 +337,6 @@
           </p>
         </field>
     </record>
-
 
         <record model="ir.ui.view" id="property_type_tree_view">
 			<field name="name">property.type.tree.view</field>
