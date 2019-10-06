@@ -37,13 +37,13 @@ class Property(models.Model):
     _inherit = 'product.template'
 
     property_code = fields.Char('')
-    #grouped = fields.Boolean(
-        #string="Is a Parent", help="parent property can contain multiple properties")
-    #parent_id = fields.Many2one(
-        #comodel_name='product.template', string='Parent Property', domain=[('grouped', '=', True)])
+    grouped = fields.Boolean(
+        string="Is a Parent", help="parent property can contain multiple properties")
+    parent_id = fields.Many2one(
+        comodel_name='product.template', string='Parent Property', domain=[('grouped', '=', True)])
     rent_ok = fields.Boolean('Is Rental Product')
-    #property_ids = fields.One2many(
-        #comodel_name='product.template', string='Child Properties', inverse_name='parent_id', readonly=False, required=False)
+    property_ids = fields.One2many(
+        comodel_name='product.template', string='Child Properties', inverse_name='parent_id', readonly=False, required=False)
     property_type = fields.Many2one('property.type', 'Property Type')
     property_manager = fields.Many2one('res.users', 'Property Manager')
     furnishing = fields.Selection([('none', 'None'), ('semi_furnished', 'Semi Furnished'), ('full_furnished', 'Full Furnished')], string="Furnishing")
