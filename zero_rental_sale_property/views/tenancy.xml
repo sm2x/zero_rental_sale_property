@@ -129,7 +129,7 @@
         <field name="model">rental.tenancy</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree decoration-info="state == 'draft'" colors="grey:state == 'done';green:state == 'running';red:state == 'cancel';">
+            <tree decoration-info="state == 'draft'">
                 <field name="name"/>
                 <field name="tenant_id" string="Tenant"/>
                 <field name="property_id" string="Property" create = "True"/>
