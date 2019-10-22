@@ -113,7 +113,6 @@
                                     <field name="property_type"/>
                                     <field name="property_manager"/>
                                     <field name="furnishing"/>
-				    <field name="finishing"/>
                                     <field name="bed_rooms"/>
                                     <field name="bath_rooms"/>
                                     <field name="garages"/>
