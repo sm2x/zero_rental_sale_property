@@ -45,7 +45,8 @@
                   <field name="categ_id"/>
 
                </xpath>
-                
+                </field>
+
         </record>
 
         <record model="ir.ui.view" id="product_property_form_view">
