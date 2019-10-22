@@ -129,7 +129,6 @@
         <field name="model">rental.tenancy</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree decoration-info="state == 'draft'">
                 <field name="name"/>
                 <field name="tenant_id" string="Tenant"/>
                 <field name="property_id" string="Property" create = "True"/>
@@ -137,7 +136,6 @@
                 <field name="rent_start_date"/>
                 <field name="rent_end_date"/>
                 <field name="state"/>
-            </tree>
         </field>
     </record>
 
