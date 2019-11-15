@@ -1,5 +1,5 @@
 {
-    'name': 'zero_rental_sale_property',
+    'name': 'Zero Realestate Management',
     'version': '10.1.0',
     "summary": "rental and sales properaty management-real estate full cycle ",
     'description': """this App for Renting and Sales Properaty management full cycle integrated with odoo 10 (sales , inventory, ecommerce and accouting)-tested on odoo community and enterprise 10-Support English and Arabic interface""",
