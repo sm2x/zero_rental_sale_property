@@ -1,10 +1,9 @@
-from datetime import datetime
-from datetime import date
+from datetime import datetime, date
+
 from dateutil.relativedelta import relativedelta
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+
 from odoo import models, fields, api, _, exceptions
 from odoo.exceptions import UserError, Warning
-
 
 class Tenancy(models.Model):
     _name = 'rental.tenancy'
