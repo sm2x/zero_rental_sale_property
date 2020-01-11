@@ -99,7 +99,7 @@ class Tenancy(models.Model):
     @api.onchange('rent_start_date','period')
     def compute_end_rent_date(self):
         for each in self:
-            each.rent_end_date = str(datetime.strptime(each.rent_start_date, '%m/%d/%y').date() + relativedelta(months=+each.period))
+            each.rent_end_date = str(datetime.strptime(each.rent_start_date,'%m/%d/%y').date() + relativedelta(months=+each.period))
 
     @api.onchange('property_id')
     def set_property_details(self):
